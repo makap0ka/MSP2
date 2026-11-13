@@ -1,0 +1,225 @@
+﻿<Window x:Class="MultithreadingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Multithreading - System Programming"
+        Height="750"
+        Width="1050"
+        MinHeight="600"
+        MinWidth="850"
+        WindowStartupLocation="CenterScreen"
+        Background="#F0F2F5">
+
+    <Grid Margin="15">
+        <TabControl>
+
+            <!-- 1-5 -->
+            <TabItem Header="Tasks 1-5 - Console tasks">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="MULTITHREADING - CONSOLE TASKS"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Margin="0,0,0,15"/>
+
+                    <WrapPanel Grid.Row="1" Margin="0,0,0,15">
+
+                        <StackPanel Margin="0,0,15,0">
+                            <TextBlock Text="Start number"/>
+                            <TextBox x:Name="StartBox"
+                                     Width="100"
+                                     Height="28"
+                                     Text="0"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,15,0">
+                            <TextBlock Text="End number"/>
+                            <TextBox x:Name="EndBox"
+                                     Width="100"
+                                     Height="28"
+                                     Text="50"/>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <TextBlock Text="Number of threads"/>
+                            <TextBox x:Name="ThreadCountBox"
+                                     Width="100"
+                                     Height="28"
+                                     Text="3"/>
+                        </StackPanel>
+
+                    </WrapPanel>
+
+                    <WrapPanel Grid.Row="2" Margin="0,0,0,15">
+
+                        <Button Content="Task 1"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="Task1_Click"/>
+
+                        <Button Content="Task 2"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="Task2_Click"/>
+
+                        <Button Content="Task 3"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="Task3_Click"/>
+
+                        <Button Content="Task 4"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="Task4_Click"/>
+
+                        <Button Content="Task 5"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="Task5_Click"/>
+
+                        <Button Content="Clear"
+                                Width="100"
+                                Height="35"
+                                Margin="0,0,10,5"
+                                Click="ClearConsole_Click"/>
+
+                    </WrapPanel>
+
+                    <GroupBox Grid.Row="3"
+                              Header="Program output"
+                              Padding="10">
+
+                        <TextBox x:Name="ConsoleOutput"
+                                 IsReadOnly="True"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Auto"
+                                 TextWrapping="NoWrap"
+                                 FontFamily="Consolas"
+                                 FontSize="13"
+                                 Background="#1E1E1E"
+                                 Foreground="#FFFFFF"/>
+
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+
+            <!-- 6-7 -->
+            <TabItem Header="Tasks 6-7 - Window tasks">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- 6 -->
+                    <GroupBox Grid.Row="0"
+                              Header="Task 6 - Number range"
+                              Padding="12"
+                              Margin="0,0,0,10">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0"
+                                        Margin="5">
+
+                                <TextBlock Text="Start number"/>
+                                <TextBox x:Name="StartBox6"
+                                         Text="0"
+                                         Height="28"
+                                         Margin="0,5,0,10"/>
+
+                                <TextBlock Text="End number"/>
+                                <TextBox x:Name="EndBox6"
+                                         Text="50"
+                                         Height="28"
+                                         Margin="0,5,0,10"/>
+
+                                <TextBlock Text="Number of threads"/>
+                                <TextBox x:Name="ThreadCountBox6"
+                                         Text="3"
+                                         Height="28"
+                                         Margin="0,5,0,15"/>
+
+                                <Button Content="Run Task 6"
+                                        Height="35"
+                                        Click="Task6_Click"/>
+
+                            </StackPanel>
+
+                            <TextBox x:Name="Output6"
+                                     Grid.Column="1"
+                                     IsReadOnly="True"
+                                     AcceptsReturn="True"
+                                     VerticalScrollBarVisibility="Auto"
+                                     FontFamily="Consolas"
+                                     Margin="10,0,0,0"/>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- 7 -->
+                    <GroupBox Grid.Row="1"
+                              Header="Task 7 - Array calculations"
+                              Padding="12">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0"
+                                        VerticalAlignment="Center"
+                                        Margin="5">
+
+                                <TextBlock Text="Array size: 10000"
+                                           FontSize="16"
+                                           FontWeight="Bold"
+                                           Margin="0,0,0,15"/>
+
+                                <TextBlock Text="Three threads calculate:"
+                                           Margin="0,0,0,5"/>
+
+                                <TextBlock Text="Minimum, maximum and average"
+                                           TextWrapping="Wrap"
+                                           Margin="0,0,0,15"/>
+
+                                <Button Content="Run Task 7"
+                                        Height="38"
+                                        Click="Task7_Click"/>
+
+                            </StackPanel>
+
+                            <TextBox x:Name="Output7"
+                                     Grid.Column="1"
+                                     IsReadOnly="True"
+                                     AcceptsReturn="True"
+                                     VerticalScrollBarVisibility="Auto"
+                                     FontFamily="Consolas"
+                                     Margin="10,0,0,0"/>
+
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
